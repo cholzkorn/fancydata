@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Stylesheet imports - bootswatch style "minty"-->
+    <link rel="stylesheet" href="style/bs/bootstrap.min.css">
+    <link rel="stylesheet" href="style/bs/bootstrap.css">
+    <link rel="stylesheet" href="style/master.css">
+
+    <title>fancydata. we love making data shine.</title>
+
+    <!-- import chart.js -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <!-- Our data -->
+    <script type="text/javascript">
+      let data={};
+      data.excel=2108;
+      data.word=1479;
+      data.powerpoint=2275;
+      data.access=600;
+    </script>
+
+  </head>
+  <body>
+    <!-- top titles -->
+    <h1 align="center">fancydata.</h1>
+    <h3 align="center">we love making data shine</h3>
+
+    <br>
+    <br>
+
+  <div class="container">
+    <div class="row">
+      <!-- FIRST ROW --------------------------------------------------------->
+
+      <!-- plot -->
+      <div class="col-mb-3">
+        <canvas id="bar-chart" width="800" height="450"></canvas>
+        <script type="text/javascript">
+          // set chart scale to 0 globally
+          Chart.scaleService.updateScaleDefaults('linear', {
+              ticks: {
+                  min: 0
+              }
+          });
+          new Chart(document.getElementById("bar-chart"), { type: 'bar', data: { labels: ["Excel", "Word", "Powerpoint", "Access"], datasets: [ { label: "users", backgroundColor: ["#56CC9D", "#007bff","#FF7851","#6f42c1"], data: [data.excel,data.word,data.powerpoint,data.access] } ] }, options: {legend: { display: false }, title: { display: true, text: 'MS Office products by usage' } } });
+        </script>
+      </div>
+
+      <!-- card -->
+      <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">JavaScript / CSS</div>
+        <div class="card-body">
+          <h4 class="card-title">beautiful plots</h4>
+          <p class="card-text">
+            Interactive plots turn tables into living story-tellers.
+            Let your data tell a story in an explorative way.
+            <br><br>
+            Choose style: <br>
+            <select class="custom-select" name="xxx">
+              <option value="bar">bar chart</option>
+              <option value="horizontal">horizontal bar chart</option>
+              <option value="pie">pie chart</option>
+              <option value="doughnut">doughnut chart</option>
+              <option value="polar">polar chart</option>
+              <option value="radar">radar chart</option>
+            </select>
+          </p>
+        </div>
+      </div>
+      <!-- FIRST ROW END ---------------------------------------------------->
+
+    </div>
+  </div>
+
+
+
+  </body>
+</html>
