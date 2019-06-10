@@ -7,7 +7,7 @@ Chart.scaleService.updateScaleDefaults('linear', {
 
 
 
-function print_plot(selected) {
+function print_firstplot(selected) {
 
   console.log("function called");
 
@@ -15,12 +15,19 @@ function print_plot(selected) {
   var selected = document.getElementById("selectFirstPlot").value;
   console.log(selected);
 
-// SWITCH STATEMENT
+
+  // Destroy previous
+
+
+  // SWITCH STATEMENT
 
   switch(selected){
     // BAR CHART
     case "bar":
-      new Chart(document.getElementById("plot1"),{
+    var ctxLine = document.getElementById("plot1").getContext("2d");
+    if(window.bar != undefined)
+    window.bar.destroy();
+    window.bar = new Chart(document.getElementById("plot1"),{
         type: 'bar',
         data: {
           labels: ["Excel", "Word", "Powerpoint", "Access"],
@@ -30,7 +37,10 @@ function print_plot(selected) {
 
     // HORIZONTAL BAR CHART
     case "horizontal":
-      new Chart(document.getElementById("plot1"),{
+    var ctxLine = document.getElementById("plot1").getContext("2d");
+    if(window.bar != undefined)
+    window.bar.destroy();
+    window.bar = new Chart(document.getElementById("plot1"),{
         type: 'horizontalBar',
         data: {
           labels: ["Excel", "Word", "Powerpoint", "Access"],
@@ -40,7 +50,10 @@ function print_plot(selected) {
 
     // PIE CHART
     case "pie":
-      new Chart(document.getElementById("plot1"),{
+    var ctxLine = document.getElementById("plot1").getContext("2d");
+    if(window.bar != undefined)
+    window.bar.destroy();
+    window.bar = new Chart(document.getElementById("plot1"),{
         type: 'pie',
         data: {
           labels: ["Excel", "Word", "Powerpoint", "Access"],
@@ -50,7 +63,10 @@ function print_plot(selected) {
 
     // DOUGHNUT CHART
     case "doughnut":
-      new Chart(document.getElementById("plot1"),{
+    var ctxLine = document.getElementById("plot1").getContext("2d");
+    if(window.bar != undefined)
+    window.bar.destroy();
+    window.bar = new Chart(document.getElementById("plot1"),{
         type: 'doughnut',
         data: {
           labels: ["Excel", "Word", "Powerpoint", "Access"],
@@ -60,7 +76,10 @@ function print_plot(selected) {
 
     // POLAR CHART
     case "polar":
-      new Chart(document.getElementById("plot1"),{
+    var ctxLine = document.getElementById("plot1").getContext("2d");
+    if(window.bar != undefined)
+    window.bar.destroy();
+    window.bar = new Chart(document.getElementById("plot1"),{
         type: 'polarArea',
         data: {
           labels: ["Excel", "Word", "Powerpoint", "Access"],
@@ -70,12 +89,25 @@ function print_plot(selected) {
 
     // RADAR CHART
     case "radar":
-      new Chart(document.getElementById("plot1"),{
-        type: 'radar',
+    var ctxLine = document.getElementById("plot1").getContext("2d");
+    if(window.bar != undefined)
+    window.bar.destroy();
+    window.bar = new Chart(document.getElementById("plot1"),{
+      type: 'radar',
+      data: { labels: ["Excel", "Word", "Powerpoint", "Access"], datasets: [ { label: "users", backgroundColor: "rgba(0,0,0,0.2)",borderColor: "rgba(0,0,0,0.5)", pointBackgroundColor: ["#56CC9D", "#007bff","#FF7851","#6f42c1"],data: [data.excel,data.word,data.powerpoint,data.access,453] } ] }, options: { legend: { display: false }, title: { display: true, text: 'MS Office products by usage' } } });
+    break;
+
+    // DEFAULT CASE
+    default:
+    var ctxLine = document.getElementById("plot1").getContext("2d");
+    if(window.bar != undefined)
+    window.bar.destroy();
+    window.bar = new Chart(document.getElementById("plot1"),{
+        type: 'bar',
         data: {
           labels: ["Excel", "Word", "Powerpoint", "Access"],
           datasets: [ { label: "users", backgroundColor: ["#56CC9D", "#007bff","#FF7851","#6f42c1"], data: [data.excel,data.word,data.powerpoint,data.access] } ] },
           options: {legend: { display: false }, title: { display: true, text: 'MS Office products by usage' } } });
-    break;
+      break;
   }
 };
