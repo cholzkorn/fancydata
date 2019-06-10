@@ -38,16 +38,8 @@
 
       <!-- plot -->
       <div class="col-mb-3">
-        <canvas id="bar-chart" width="800" height="450"></canvas>
-        <script type="text/javascript">
-          // set chart scale to 0 globally
-          Chart.scaleService.updateScaleDefaults('linear', {
-              ticks: {
-                  min: 0
-              }
-          });
-          new Chart(document.getElementById("bar-chart"), { type: 'bar', data: { labels: ["Excel", "Word", "Powerpoint", "Access"], datasets: [ { label: "users", backgroundColor: ["#56CC9D", "#007bff","#FF7851","#6f42c1"], data: [data.excel,data.word,data.powerpoint,data.access] } ] }, options: {legend: { display: false }, title: { display: true, text: 'MS Office products by usage' } } });
-        </script>
+        <canvas id="plot1" width="800" height="450"></canvas>
+        <script type="text/javascript" src="scripts/firstplot.js"></script>
       </div>
 
       <!-- card -->
@@ -60,7 +52,8 @@
             Let your data tell a story in an explorative way.
             <br><br>
             Choose style: <br>
-            <select class="custom-select" name="xxx">
+            <select class="custom-select" id="selectFirstPlot"
+             onchange="print_plot()">
               <option value="bar">bar chart</option>
               <option value="horizontal">horizontal bar chart</option>
               <option value="pie">pie chart</option>
