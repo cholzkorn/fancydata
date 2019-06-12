@@ -18,11 +18,7 @@
 
     <!-- Our data -->
     <script type="text/javascript">
-      let data={};
-      data.excel=2108;
-      data.word=1479;
-      data.powerpoint=2275;
-      data.access=600;
+
     </script>
 
   </head>
@@ -39,7 +35,45 @@
       <!-- FIRST ROW --------------------------------------------------------->
 
       <!-- plot -->
-      <div class="col-mb-3">
+      <div class="col-xs-12 col-s-12 col-m-6 col-lg-6" align="center">
+        <canvas id="plot1" width="800" height="450"></canvas>
+      </div>
+
+      <!-- card -->
+      <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">JavaScript / CSS</div>
+        <div class="card-body">
+          <h4 class="card-title">beautiful plots</h4>
+          <p class="card-text">
+            Interactive plots turn tables into living story-tellers.
+            Let your data tell a story in an explorative way.
+            <br><br>
+            Choose data: <br>
+            <select class="custom-select" id="selectFirstPlot_data"
+             onchange="print_firstplot()">
+              <option value="msoffice">ms office</option>
+              <option value="political">political</option>
+            </select>
+            <br><br>
+            Choose style: <br>
+            <select class="custom-select" id="selectFirstPlot"
+             onchange="print_firstplot()">
+              <option value="bar">bar chart</option>
+              <option value="horizontal">horizontal bar chart</option>
+              <option value="pie">pie chart</option>
+              <option value="doughnut">doughnut chart</option>
+              <option value="polar">polar chart</option>
+              <option value="radar">radar chart</option>
+            </select>
+          </p>
+        </div>
+      </div>
+      <!-- FIRST ROW END ---------------------------------------------------->
+
+      <!-- SECOND ROW --------------------------------------------------------->
+
+      <!-- map -->
+      <div class="col-xs-12 col-s-12 col-m-6 col-lg-6" align="center">
         <canvas id="plot1" width="800" height="450"></canvas>
       </div>
 
