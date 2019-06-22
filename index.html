@@ -10,8 +10,10 @@
 
     <title>fancydata. we love making data shine.</title>
 
-    <!-- import chart.js -->
+    <!-- import necessary libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
     <!-- import self-written scripts -->
     <script type="text/javascript" src="scripts/firstplot.js"></script>
@@ -74,27 +76,24 @@
 
       <!-- map -->
       <div class="col-xs-12 col-s-12 col-m-6 col-lg-6" align="center">
-        <canvas id="plot1" width="800" height="450"></canvas>
+        <iframe src="html/austrialeaflet.html" width="100%" height="100%"></iframe>
       </div>
 
       <!-- card -->
       <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-        <div class="card-header">JavaScript / CSS</div>
+        <div class="card-header">JavaScript / CSS or R (Shiny)</div>
         <div class="card-body">
-          <h4 class="card-title">beautiful plots</h4>
+          <h4 class="card-title">interactive maps</h4>
           <p class="card-text">
-            Interactive plots turn tables into living story-tellers.
-            Let your data tell a story in an explorative way.
+            Addresses, or lists of geographical data can seem overwhelming. A
+            better way of displaying data with spatial components is to put them
+            on a map.
             <br><br>
-            Choose style: <br>
+            Choose map: <br>
             <select class="custom-select" id="selectFirstPlot"
              onchange="print_firstplot()">
-              <option value="bar">bar chart</option>
-              <option value="horizontal">horizontal bar chart</option>
-              <option value="pie">pie chart</option>
-              <option value="doughnut">doughnut chart</option>
-              <option value="polar">polar chart</option>
-              <option value="radar">radar chart</option>
+              <option value="bar">population data</option>
+              <option value="horizontal">store locations</option>
             </select>
           </p>
         </div>
